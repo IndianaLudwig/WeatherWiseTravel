@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WWTWebApp",
+    "\\WWTWebApp\\WWT"
   ],
+  "SelectedNode": "\\WWTWebApp\\manage.py",
   "PreviewInSolutionExplorer": false
 }
