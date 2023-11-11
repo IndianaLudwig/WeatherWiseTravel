@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WWTWebApp"
+    "\\WWTWebApp",
+    "\\WWTWebApp\\WWT"
   ],
-  "SelectedNode": "\\WWTWebApp\\WWTWebApp",
+  "SelectedNode": "\\WWTWebApp\\WWT\\urls.py",
   "PreviewInSolutionExplorer": false
 }
