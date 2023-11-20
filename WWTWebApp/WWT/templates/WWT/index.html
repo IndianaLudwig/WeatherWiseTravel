@@ -26,8 +26,7 @@
         trip as well as where you are leaving from.
     </p>
 
-    <form action="{% url 'WWT:results' %}" method="post">
-        {% csrf_token %}
+    <form action="{% url 'WWT:results' %}" method="get">
         <label for="origin">Leaving from:</label>
         <input type="text" id="origin" name="origin" maxlength="255" size="50" autofocus required/><br>
 
