@@ -5,7 +5,8 @@ def index(request):
   return render(request, 'WWT/index.html')
 
 # Results page
-def results(request, origin, destination, arrival, departure):
+def results(request):
+  
   context = {"origin": origin, "destination": destination, "arrival": arrival, "departure": departure}
   return render(request, 'WWT/results.html', context)
 
