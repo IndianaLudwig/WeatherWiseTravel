@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html>
-   <body>
-     Hello, world. You're at the WWT index.
-   </body>
+<body>
+    <header>
+        <div>
+            <h1>WeatherWise Travel</h1>
+            <h2>Enhancing Trips with Real-Time Weather Insights</h2>
+        </div>
+        <div>
+            <h1>
+                Travel<br>
+                Clear
+            </h1>
+        </div>
+        <nav>
+            <!--<a href="/WWT/">Welcome</a>-->
+            <a href="{% url 'WWT:index' %}">Welcome</a>
+            <!--<a href="/WWT/about/">About</a>-->
+            <a href="{% url 'WWT:about' %}">About</a>
+        </nav>
+    </header>
+
+    <h1>Welcome</h1>
+    <p>
+        Please enter your destination and the beginning and end date of your
+        trip as well as where you are leaving from.
+    </p>
+
+    <form action="{% url 'WWT:results' origin=origin destination=destination arrival=arrival departure=departure %}" method="post">
+        {% csrf_token %}
+        <label for="origin">Leaving from:</label>
+        <input type="text" id="origin" name="origin" maxlength="255" size="50" autofocus required/><br>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" maxlength="255" size="50" required/><br>
+
+        <label for="arrival">Arriving:</label>
+        <input type="date" id="arrival" name="arrival" required/><br>
+
+        <label for="departure">Departing:</label>
+        <input type="date" id="departure" name="departure" required/><br>
+
+        <input type="submit" value="Enter"/>
+    </form>
+</body>
 </html>
