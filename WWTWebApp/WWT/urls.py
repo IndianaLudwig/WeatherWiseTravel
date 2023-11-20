@@ -6,8 +6,8 @@ urlpatterns = [
   # /WWT/
   path("", views.index, name="index"),
   
-  # /WWT/results/origin/destination/arrival/departure/
-  path("results/<str:origin>/<str:destination>/<str:arrival>/<str:departure>/", views.results, name="results"),
+  # /WWT/results/
+  path("results/", views.results, name="results"),
   
   # /WWT/location/locationID/
   path("location/<int:locationID>/", views.location, name="location"),
