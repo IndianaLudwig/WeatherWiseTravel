@@ -1,74 +1,86 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <!--Load the absolute URL of static files-->
+    {% load static %}
+
+    <!--Load in CSS-->
+    <link rel="stylesheet" href="{% static 'WWT/CSS/style.css' %}" />
+</head>
 <body>
     <header>
-        <div>
-            <h1>WeatherWise Travel</h1>
-            <h2>Enhancing Trips with Real-Time Weather Insights</h2>
+        <div class="headerLayout">
+            <div class="centerText">
+                <h1 class="headerText">WeatherWise Travel</h1>
+                <h2 class="headerText">Enhancing Trips with Real-Time Weather Insights</h2>
+            </div>
+            <div>
+                <h1 class="headerText">
+                    Travel<br>
+                    Clear
+                </h1>
+            </div>
+            <nav class="centerText texth2">
+                <a href="{% url 'WWT:index' %}">Welcome</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'WWT:about' %}">About</a>
+            </nav>
         </div>
-        <div>
-            <h1>
-                Travel<br>
-                Clear
-            </h1>
-        </div>
-        <nav>
-            <!--<a href="/WWT/">Welcome</a>-->
-            <a href="{% url 'WWT:index' %}">Welcome</a>
-            <!--<a href="/WWT/about/">About</a>-->
-            <a href="{% url 'WWT:about' %}">About</a>
-        </nav>
     </header>
 
-    <h1>About</h1>
-    <h2>Information about WeatherWise Travel</h2><!--FIXME-->
-    <p>
-        WeatherWise Travel is a web app developed by Travel Clear to aid in
-        travel planning by providing recommendations based on where a person is
-        leaving from, going to, the dates they are at the destination, the
-        activities they want to enjoy, and the weather forcasted for while they
-        are at the destination. WeatherWise Travel presents an all-in-one travel
-        information hub providing information on flights, car rentals, hotels,
-        the weather, and various activity locations at the travel destination 
-        along with a map. More information about the locations can be obtained
-        simply by selecting them from the results. As for the weather
-        categorization, WeatherWise Travel classifies the forcasted weather at
-        the destination as follows:
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-        Note that WeatherWise Travel will only recommend outdoor activities if
-        the forcasted weather on the selected day is amicable to the outdoor
-        activity chosen, otherwise presenting indoor activities as recommended.
-    </p>
-    <h2>Information about APIs used</h2>
-    <p>
-        WeatherWise Travel leverages information from the following API's to
-        provide its users with valuable insights:
-        <ul>
-            <li><a href="https://developers.skyscanner.net/docs/intro">SkyScanner - Information on flights.</a></li>
-            <li><a href="https://www.meteomatics.com/en/weather-api/">Meteomatics - Insights on weather.</a></li>
-            <li><a href="https://docs.mapbox.com/api/overview/">Mapbox - Geocoding service utilized for map generation.</a></li>
-            <li><a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google Places -  Information on location, car rentals, and hotels.</a></li>
-        </ul>
-    </p>
-    <h2>Disclaimer</h2><!--Update when user profiles are integrated-->
-    <p>
-        WeatherWise Travel is a web app designed to enhance trips with 
-        real-time weather insights and aid users in planning their trips it is
-        not a professional weather forcaster nor a travel agent and the same
-        goes for the Travel Clear team. Data utilized by WeatherWise Travel
-        comes from the above APIs. WeatherWise Travel and the Travel Clear team
-        are thus not liable for any inaccuracies in weather forcasting, 
-        activity locations, or any other data provided, nor are they liable 
-        for anything that may happen in a user's lifetime. Users should make 
-        sure they are prepared for the activities they intend to participate 
-        in and understand that weather forcasts especially are not always
-        accurate. By useing WeatherWise Travel, you agree to this disclaimer.
-    </p>
+    <div class="pageMargins">
+        <h1 class="centerText">About</h1>
+        <h2 class="centerText">Information about WeatherWise Travel</h2><!--FIXME-->
+        <p class="paragraph">
+            WeatherWise Travel is a web app developed by Travel Clear to aid in
+            travel planning by providing recommendations based on where a person is
+            leaving from, going to, the dates they are at the destination, the
+            activities they want to enjoy, and the weather forcasted for while they
+            are at the destination. WeatherWise Travel presents an all-in-one travel
+            information hub providing information on flights, car rentals, hotels,
+            the weather, and various activity locations at the travel destination
+            along with a map. More information about the locations can be obtained
+            simply by selecting them from the results. As for the weather
+            categorization, WeatherWise Travel classifies the forcasted weather at
+            the destination as follows:
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </p>
+        <p class="paragraph">
+            Note that WeatherWise Travel will only recommend outdoor activities if
+            the forcasted weather on the selected day is amicable to the outdoor
+            activity chosen, otherwise presenting indoor activities as recommended.
+        </p>
+        <h2 class="centerText">Information about APIs used</h2>
+        <p class="paragraph">
+            WeatherWise Travel leverages information from the following API's to
+            provide its users with valuable insights:
+            <ul>
+                <li><a href="https://developers.skyscanner.net/docs/intro">SkyScanner</a> - Information on flights.</li>
+                <li><a href="https://www.meteomatics.com/en/weather-api/">Meteomatics</a> - Insights on weather.</li>
+                <li><a href="https://docs.mapbox.com/api/overview/">Mapbox</a> - Geocoding service utilized for map generation.</li>
+                <li><a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google Places</a> - Information on location, car rentals, and hotels.</li>
+            </ul>
+        </p>
+        <h2 class="centerText">Disclaimer</h2><!--Update when user profiles are integrated-->
+        <p class="paragraph">
+            WeatherWise Travel is a web app designed to enhance trips with
+            real-time weather insights and aid users in planning their trips it is
+            not a professional weather forcaster nor a travel agent and the same
+            goes for the Travel Clear team. Data utilized by WeatherWise Travel
+            comes from the above APIs. WeatherWise Travel and the Travel Clear team
+            are thus not liable for any inaccuracies in weather forcasting,
+            activity locations, or any other data provided, nor are they liable
+            for anything that may happen in a user's lifetime. Users should make
+            sure they are prepared for the activities they intend to participate
+            in and understand that weather forcasts especially are not always
+            accurate. By useing WeatherWise Travel, you agree to this disclaimer.
+        </p>
+    </div>
 </body>
 </html>

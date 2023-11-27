@@ -1,0 +1,42 @@
+.pageMargins {
+    margin: auto;
+    width: 75%;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.headerLayout {
+    display: grid;
+    grid-template-columns: 9999fr 1fr;
+}
+
+.headerText {
+    padding: 3px;
+    margin: 0px;
+}
+
+.paragraph {
+    text-indent: 30px;
+}
+
+.texth2 {
+    font-size: 24px;
+}
+
+.travelForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    margin: auto;
+    width: 75%;
+    max-width: 600px;
+}
+
+.travelFormSubmit {
+    display: block;
+    margin: auto;
+    width: 30%;
+    max-width: 250px;
+}

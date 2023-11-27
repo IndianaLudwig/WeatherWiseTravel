@@ -5,53 +5,60 @@
     {% load static %}
 
     <!--Load in CSS-->
-    <link rel="stylesheet" href="{% static 'WWT/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'WWT/CSS/style.css' %}"/>
 </head>
 <body>
     <header>
-        <div>
-            <h1>WeatherWise Travel</h1>
-            <h2>Enhancing Trips with Real-Time Weather Insights</h2>
+        <div class="headerLayout">
+            <div class="centerText">
+                <h1 class="headerText">WeatherWise Travel</h1>
+                <h2 class="headerText">Enhancing Trips with Real-Time Weather Insights</h2>
+            </div>
+            <div>
+                <h1 class="headerText">
+                    Travel<br>
+                    Clear
+                </h1>
+            </div>
+            <nav class="centerText texth2">
+                <a href="{% url 'WWT:index' %}">Welcome</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'WWT:about' %}">About</a>
+            </nav>
         </div>
-        <div>
-            <h1>
-                Travel<br>
-                Clear
-            </h1>
-        </div>
-        <nav>
-            <a href="{% url 'WWT:index' %}">Welcome</a>
-            <a href="{% url 'WWT:about' %}">About</a>
-        </nav>
     </header>
 
-    <h1>Welcome</h1>
-    <p>
+    <h1 class="centerText">Welcome</h1>
+    <p class="centerText">
         Please enter your destination and the beginning and end date of your
         trip as well as where you are leaving from.
     </p>
 
     <!--Display an error mesage if applicable-->
     {% if error_message %}
-        <p>
+        <p class="centerText">
             {{ error_message }}
         </p>
     {% endif %}
 
+    <br>
+
         <form action="{% url 'WWT:results' %}" method="get">
-            <label for="origin">Leaving from:</label>
-            <input type="text" id="origin" name="origin" maxlength="255" size="50" autofocus required /><br>
+            <div class="travelForm">
+                <label for="origin" class="centerText">Leaving from:</label>
+                <input type="text" id="origin" name="origin" maxlength="255" autofocus required/>
 
-            <label for="destination">Destination:</label>
-            <input type="text" id="destination" name="destination" maxlength="255" size="50" required /><br>
+                <label for="destination" class="centerText">Destination:</label>
+                <input type="text" id="destination" name="destination" maxlength="255" required/>
 
-            <label for="arrival">Arriving:</label>
-            <input type="date" id="arrival" name="arrival" required /><br>
+                <label for="arrival" class="centerText">Arriving:</label>
+                <input type="date" id="arrival" name="arrival" required/>
 
-            <label for="departure">Departing:</label>
-            <input type="date" id="departure" name="departure" required /><br>
-
-            <input type="submit" value="Enter" />
+                <label for="departure" class="centerText">Departing:</label>
+                <input type="date" id="departure" name="departure" required/>
+            </div>
+            <br>
+            <input type="submit" value="Enter" class="travelFormSubmit"/>
         </form>
 </body>
 </html>
