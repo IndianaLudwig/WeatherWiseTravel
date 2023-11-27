@@ -121,6 +121,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+#Finding static files in the project
+STATICFILES_DIRS = [
+    BASE_DIR/'WWT/static'
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
