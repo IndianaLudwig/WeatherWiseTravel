@@ -3,6 +3,22 @@
     width: 75%;
 }
 
+.body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.borderedTC {
+    border: none black 2px;
+    border-bottom-style: solid;
+}
+
+.borderedWWT {
+    border: none black 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;   
+}
+
 .centerText {
     text-align: center;
 }
@@ -10,11 +26,19 @@
 .headerLayout {
     display: grid;
     grid-template-columns: 9999fr 1fr;
+    background-color: #CCF9EF;
+    border: none black 2px;
+    border-bottom-style: solid;
 }
 
 .headerText {
     padding: 3px;
     margin: 0px;
+}
+
+.headerTextTC {
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .paragraph {

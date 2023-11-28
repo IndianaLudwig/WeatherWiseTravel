@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html>
-   <body>
-     "Hello, these are the results for: origin = %s, destination = %s, arrival = %s, and departure = %s." % (origin, destination, arrival, departure)
-   </body>
+<head>
+    <!--Load the absolute URL of static files-->
+    {% load static %}
+
+    <!--Load in CSS-->
+    <link rel="stylesheet" href="{% static 'WWT/CSS/style.css' %}" />
+
+    <script>
+        const arrivalDT = "FIXME";
+        const departureDT = "FIXME";
+    </script>
+</head>
+<body class="body">
+    <header>
+        <div class="headerLayout">
+            <div class="centerText borderedWWT">
+                <h1 class="headerText">WeatherWise Travel</h1>
+                <h2 class="headerText">Enhancing Trips with Real-Time Weather Insights</h2>
+            </div>
+            <div class="borderedTC">
+                <h1 class="headerText headerTextTC">
+                    Travel<br>
+                    Clear
+                </h1>
+            </div>
+            <nav class="centerText texth2">
+                <a href="{% url 'WWT:index' %}">Welcome</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'WWT:about' %}">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <h1>Results for {{destination}} from {{arrival}} to {{departure}}</h1>
+</body>
 </html>
