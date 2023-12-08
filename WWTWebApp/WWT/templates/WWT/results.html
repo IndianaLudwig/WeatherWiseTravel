@@ -6,11 +6,6 @@
 
     <!--Load in CSS-->
     <link rel="stylesheet" href="{% static 'WWT/CSS/style.css' %}" />
-
-    <script>
-        const arrivalDT = "FIXME";
-        const departureDT = "FIXME";
-    </script>
 </head>
 <body class="body">
     <header>
@@ -33,7 +28,23 @@
         </div>
     </header>
 
-    <h1>Results for {{destination}} from {{arrival}} to {{departure}}</h1>
+    <h1 id="resultsTitle" class="centerText"></h1>
+
+    <!--Activity location recomendation feature-->
+    <div id="resultsDays" class="tab">
+
+    </div>
+
+    <div id="resultsActivities" class="tab">
+
+    </div>
+
+    <div id="resultsLocations" class="tab">
+
+    </div>
+    
+    <!--Load in JavaScript-->
+    <script src="{% static 'WWT/JavaScript/results.JS' %}"></script>
 
 </body>
 </html>
