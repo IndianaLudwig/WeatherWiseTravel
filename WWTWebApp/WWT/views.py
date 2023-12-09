@@ -37,21 +37,20 @@ def results(request):
       state1 = input("Enter state: ")
 
       # Test the function with some examples
-      print(location_to_iata('Jacksonville', 'Illinois')) # IJX
-      print(location_to_iata('Jacksonville', 'florida')) # CRG
-      print(location_to_iata('Jacksonville', 'New York')) # none
+     #print(location_to_iata('Jacksonville', 'florida')) # CRG
+      #print(location_to_iata('Jacksonville', 'New York')) # none
 
-      origin = (location_to_iata("jacksonville", "florida"))
-      dest = (location_to_iata("miami", "florida"))
+      #origin = (location_to_iata("jacksonville", "florida"))
+      #dest = (location_to_iata("miami", "florida"))
 
       origin = (location_to_iata(city, state))
       dest = (location_to_iata(city1, state1))
 
       #origin = "IJX"
       #dest = "CRG"
-      print("THE INPUTTED VALUES")
-      print(origin)
-      print(dest)
+      #print("THE INPUTTED VALUES")
+      #print(origin)
+      #print(dest)
 
 
       origin = "EWR"
