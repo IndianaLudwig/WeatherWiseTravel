@@ -31,18 +31,20 @@
     <h1 id="resultsTitle" class="centerText"></h1>
 
     <!--Activity location recomendation feature-->
-    <div id="resultsDays" class="tab">
+    <div>
+        <div id="resultsDays" class="tab">
+            <h3>Days:</h3>
+        </div>
 
+        <div id="resultsActivities" class="tab">
+            <h3>Activities:</h3>
+        </div>
+
+        <div id="resultsLocations" class="tab hiddenElement">
+            <h3>Locations:</h3>
+        </div>
     </div>
 
-    <div id="resultsActivities" class="tab">
-
-    </div>
-
-    <div id="resultsLocations" class="tab">
-
-    </div>
-    
     <!--Load in JavaScript-->
     <script src="{% static 'WWT/JavaScript/results.JS' %}"></script>
 

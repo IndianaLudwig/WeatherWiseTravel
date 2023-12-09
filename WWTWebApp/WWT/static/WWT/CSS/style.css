@@ -18,6 +18,10 @@
     text-align: center;
 }
 
+.errorText {
+    color: red;
+}
+
 .headerLayout {
     display: grid;
     grid-template-columns: 9999fr 1fr;
