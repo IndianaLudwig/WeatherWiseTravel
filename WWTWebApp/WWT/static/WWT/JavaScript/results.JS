@@ -31,15 +31,15 @@ let newNode = null;
 let innerText = null;
 let currentDate = new Date(urlParameters.get('arrival')); //Starts at the arrival date
 
-//Create the buttons loop
+//Create the buttons loop FIXME, error present
 while (currentDate <= departureDT) {
     //console.log(currentDate.toLocaleDateString("en-US", { timeZone: "UTC" }));
     //Create the buttons
     newNode = document.createElement("button");
     newNode.classList.add("tabLinks1");
     newNode.setAttribute('id', currentDate.toLocaleDateString("en-US", { timeZone: "UTC" }));
-    //newNode.addEventListener("click", function () { selectDate(currentDateString); });
-    //newNode.addEventListener("click", showLocations());
+    newNode.addEventListener("click", function () { selectDate(currentDateString); });
+    newNode.addEventListener("click", showLocations());
     innerText = document.createTextNode(currentDate.toLocaleDateString("en-US", { timeZone: "UTC" }));
     newNode.appendChild(innerText);
 
@@ -64,7 +64,7 @@ for (let i = 0; i < arrayLength; i++) {
     newNode = document.createElement("button");
     newNode.classList.add("tabLinks2");
     newNode.addEventListener("click", function () { selectActivity(WWTActivities[i]); });
-    //newNode.addEventListener("click", showLocations());
+    newNode.addEventListener("click", showLocations());
     innerText = document.createTextNode(WWTActivities[i]);
     newNode.appendChild(innerText);
 
@@ -106,9 +106,3 @@ function showLocations() {
         console.log("daySelection = " + daySelection + "\nactivitySelection = " + activitySelection);
     }
 }
-
-
-//Create a function to generate the event listner for the dates due to pointers causing problems.
-//Change functionality completely to pull the value of the one with class active.
-//***Use the while loop to create a array for a for loop***
-//The core issue is that the Event listener is not part of the HTML code, it is part of the JavaScript itself and thus changes according to the values in it, even after it is made.
