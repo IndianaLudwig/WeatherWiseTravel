@@ -1,4 +1,8 @@
 from django.shortcuts import render
+import airportsdata
+import requests
+import requests
+import json
 
 # Welcome page and input form
 def index(request):
@@ -10,6 +14,44 @@ def results(request):
       #Attempt to read in information from the request
       #SEAN !!1
       #You have the destination and time, use that like a smart person!
+      # Load the data into a dictionary with IATA as the key
+      airports = airportsdata.load('IATA')
+
+      # Define a function that takes a location as input and returns the IATA code
+      def location_to_iata(city, state):
+        # Loop through the airports dictionary
+        for iata, airport in airports.items():
+          # Check if the location is valid
+          if city.lower() in (airport['city'].lower()) and state.lower() in (airport['subd'].lower()):
+            # Return the IATA code
+              return iata
+        # If no match is found, return None
+        return None
+
+      print("Coming from?")
+      city = input("Enter city: ")
+      state = input("Enter state: ")
+
+      print("Going to?")
+      city1 = input("Enter city: ")
+      state1 = input("Enter state: ")
+
+      # Test the function with some examples
+      print(location_to_iata('Jacksonville', 'Illinois')) # IJX
+      print(location_to_iata('Jacksonville', 'florida')) # CRG
+      print(location_to_iata('Jacksonville', 'New York')) # none
+
+      origin = (location_to_iata("jacksonville", "florida"))
+      dest = (location_to_iata("miami", "florida"))
+
+      origin = (location_to_iata(city, state))
+      dest = (location_to_iata(city1, state1))
+
+      #origin = "IJX"
+      #dest = "CRG"
+      print("THE INPUTTED VALUES")
+      print(origin)
+      print(dest)
 
 
       origin = "EWR"
