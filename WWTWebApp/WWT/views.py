@@ -8,8 +8,67 @@ def index(request):
 def results(request):
   try:
       #Attempt to read in information from the request
+      #SEAN !!1
+      #You have the destination and time, use that like a smart person!
+
+
+      origin = "EWR"
+      dest = "JAX"
+      #SIN, LHR
+
+      url = 'https://partners.api.skyscanner.net/apiservices/v3/flights/live/search/create'
+      headers = {'x-api-key': 'sh428739766321522266746152871799'}
+      data = {
+          "query": {
+              "market": "UK",
+              "locale": "en-GB",
+              "currency": "USD",
+              "query_legs": [{"origin_place_id": {"iata":origin}, "destination_place_id": {"iata":dest}, "date": {"year": 2023, "month": 12, "day": 12}}],
+              "adults": 1,
+              "cabin_class": "CABIN_CLASS_ECONOMY"
+          }
+      }
+
+      response = requests.post(url, headers=headers, json=data)
+
+
+      #==========================================
+
+      # Check if the request was successful
+      if response.status_code == 200:
+          # Corrected line: Call response.json() as a method
+          json_data = response.json()
+          #print(json_data)
+          # Iterate through all itineraries
+          json_data["content"]["results"]["itineraries"]
+
+          # Extract the "amount" field from the first pricing option  
+
+
+        
+          for itinerary_key, itinerary_data in json_data["content"]["results"]["itineraries"].items():
+            amount = json_data["content"]["results"]["itineraries"][itinerary_key]["pricingOptions"][0]["price"]["amount"]
+            amount_usd = round(float(amount) * 0.001, 2)
+            dur = json_data["content"]["results"]["legs"][itinerary_key]["durationInMinutes"]
+            dur_hr = (int(dur) / 60) #makes it hrs
+            dur_min = (int(dur) % 60) #makes it mins
+            name = json_data["content"]["results"]["agents"][itinerary_data["pricingOptions"][0]["agentIds"][0]]["name"]
+            #print(f"For Itinerary {itinerary_key}, 
+            print(f"A flight will be ${amount_usd} for {int((dur_hr))} hours and {int(dur_min)} minutes through {name}.")
+
+      #name = name of the airline
+      #amount_usd = amount of money for the flight in US dollars
+      #dur_hr = duration of the flight's hours
+      #dur_min = duration of the flight's minutes
+
+      else:
+        print(f"Error: {response.status_code}")
+        print(response.text)
+
+      #3rd page of the djangoproject.com > try tutorial> 3rd page > for loop in django 
       origin = request.GET["origin"]
       destination = request.GET["destination"]
+
       arrival = request.GET["arrival"]
       departure = request.GET["departure"]
   except (KeyError):
