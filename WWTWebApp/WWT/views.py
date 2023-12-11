@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import airportsdata
+#import airportsdata
 import requests
 import requests
 import json
@@ -11,6 +11,7 @@ def index(request):
 # Results page
 def results(request):
   try:
+      '''
       #Attempt to read in information from the request
       #SEAN !!1
       #You have the destination and time, use that like a smart person!
@@ -106,7 +107,7 @@ def results(request):
         print(f"Error: {response.status_code}")
         print(response.text)
 
-      #3rd page of the djangoproject.com > try tutorial> 3rd page > for loop in django 
+      #3rd page of the djangoproject.com > try tutorial> 3rd page > for loop in django'''
       origin = request.GET["origin"]
       destination = request.GET["destination"]
 
